@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>	<head>
+		<link rel="stylesheet" href= "../frontend/css/input_style.css">
+        <link rel="stylesheet" href= "../frontend/css/shopping_list.css">
+
+        <script src="../frontend/javascript/caching_handler.js"></script>
+		<script src="../frontend/javascript/string_manipulator.js"></script>
+		<script src="../frontend/javascript/request_handler.js"></script>
+		<script src="../frontend/javascript/shopping_list.js"></script>
+	</head>
+
+    <script>
+		function InitAll() {
+            shoppingListHandler = new ShoppingListHandler();
+            getLists();
+		}
+	</script>
+
+    <script>
+
+        function getLists() {
+            sendXMLRequest("/lijstje/display", "?port=5004", "GET", showAllLists);
+        }
+
+        function showAllLists(lists) {
+            if(shoppingListHandler.storageHandler.amount() != 0)
+                showShoppingList({"id": "huidige"}, "<button class='list_button' onclick='shoppingListHandler.sendList(removeList); button_send()')>Verstuur</button>")
+            else 
+                showShoppingList({"id": "huidige"}, `<button class='list_button' onclick="location.href='../html/product_page';">U heeft geen producten</button>`)
+
+            lists.forEach(element => {
+                showShoppingList(element);
+            });
+        }
+        
+        function button_send() {
+            alert("D i t    i s    h e t    e i n d e    v a n    d e    d e m o");
+        }
+
+        function removeList() {
+            shoppingListHandler.clear();
+            reloadPage();
+        }
+
+        async function reloadPage() {
+            await new Promise(r => setTimeout(r, 500));
+            location.reload();
+        }
+
+        function showShoppingList(list, extraButton = "") {
+            container = document.getElementById("shopping_lists");
+            var deleteFunction = `sendXMLRequest('/lijstje/delete', '?port=5004&id=${list['id']}', 'DELETE', reloadPage);`;
+            if (list['id'] == "huidige") 
+                deleteFunction = 'removeList()';
+
+            completeString = `<div class='list' onclick="getItems('${list['id']}')">
+                <p>Bestelling: ${list['id']} </p>
+                <div>   
+                    <button class="list_button" onclick="${deleteFunction}">X</button>
+                    ${extraButton}
+
+                </div>
+            </div>`;
+
+            container.innerHTML += completeString;  
+        }
+
+        function getItems(id) {
+            if (id != "huidige")
+                sendXMLRequest("/lijstje/items", `?port=5004&id=${id}`, "GET", showItems);
+            else 
+                shoppingListHandler.loadList();
+        }
+
+        function showItems(items) {
+            container = document.getElementById("list");
+            container.textContent = '';
+
+            items["list"].forEach(element => {
+                text = document.createElement("p");
+                text.textContent = element['name'];
+                container.appendChild(text);
+            });
+
+            container.appendChild(document.createElement("br"));
+
+            text = document.createElement("p");
+            text.textContent = "prijs: " + items['cost'];
+            container.appendChild(text);
+        }
+
+    </script>
+
+<body onload="InitAll()">
+    <div style="float: right;">
+        <button style="min-width: 120px" onclick="location.href='../html/inbox'">Inbox</button>
+    </div>
+    <div id="main_field">
+        <div id="shopping_lists">
+            
+        </div>
+
+        <div id="selected_list">
+            <ul id="list" style="list-style-type: none;">
+
+            </ul>
+        </div>
+        <!-- <button onclick="location.href='../html/product_page'"></button> -->
+        <button onclick="location.href='../html/product_page'">Terug</button>
+	</div>
+</body>
+</html>

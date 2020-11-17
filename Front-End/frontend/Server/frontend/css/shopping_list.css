@@ -1,0 +1,63 @@
+body {
+	background: #000000;
+	letter-spacing: 3px;
+    line-height: 25px;
+    color: #ffff00;
+    font-family: Arial;
+}
+
+#main_field{
+    margin: auto;
+    width: 95%;
+    text-align: center;
+    padding: 40px;
+    padding-top: 100px;
+}
+
+#shopping_lists {
+    width: 50%;
+    border: 2px solid rgb(100, 160, 59);
+    padding: 20px;
+    display: inline-block;
+    min-height: 500px;
+    margin: 10px;
+}
+
+#list {
+    float: left;
+    text-align: left;
+    min-height: 420px;
+}
+
+.list {
+    border: 2px solid rgb(100, 160, 59);
+    text-align: left;
+    float: left;
+    width: 99%;
+}
+
+.list:hover {
+    background-color: #200020;
+}
+
+.list:active {
+    background-color: #500050;
+}
+
+#selected_list {
+    width: 25%;
+    border: 2px solid rgb(100, 160, 59);
+    padding: 20px;
+    display: inline-block;
+    min-height: 500px;
+    margin: 10px;
+}
+
+button {
+    min-width: 30%;
+}
+
+.list_button {
+    min-width: 10%;
+    float: right;
+}

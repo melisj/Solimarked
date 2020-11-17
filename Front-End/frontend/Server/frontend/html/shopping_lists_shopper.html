@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href= "../frontend/css/input_style.css">
+        <link rel="stylesheet" href= "../frontend/css/shopping_list_shopper.css">
+	</head>
+
+    <script>
+        lists = [
+            ["<li>Appels</li><li>Boerenkool</li><li>Aardappelen</li><li>Yoghurt</li><li>Sinaasappelsap</li><li>Melk</li><li>Bananen</li>"],
+            ["<li>Bananen</li><li>Bieten</li><li>Melk</li><li>Komkommer</li><li>Rijst</li><li>Bananan Smoothie</li>"],
+            ["<li>Spinazi</li>"],
+            ["<li>Spruitjes</li><li>Gehakt</li><li>Fietsventieldopje</li><li>Kaarsen</li>"]
+        ];
+
+        function showShoppingList(id) {
+            document.getElementById("shopping_list_content").innerHTML = lists[id];
+        }
+
+    </script>
+
+<body onload="showShoppingList(0)">
+    <div style="float: right;">
+        <button style="min-width: 150px;">Inbox</button>
+    </div>
+    <div id="main_field">
+        <div id="shopping_lists">
+            <div class="list" onclick="showShoppingList(0)">
+                <p>Order: 29/5/2020 15:36 - Naam: Adriaan</p>
+                <p>Grootte van de bestelling: 6 producten</p>
+                <p>Time Remaining : 1:32</p>
+                <div>
+                    <button class="list_button">Cancel</button>
+                </div>
+            </div>
+            <div class="list" onclick="showShoppingList(1)">
+                <p>Order: 29/5/2020 13:57 - Naam: Ingrid</p>
+                <p>Grootte van de bestelling: 14 producten</p>
+                <div>
+                    <button class="list_button">Accept</button>
+                </div>
+            </div>
+            <div class="list" onclick="showShoppingList(2)">
+                <p>Order: 29/5/2020 11:32 - Naam: Gert</p>
+                <p>Grootte van de bestelling: 4 producten</p>
+                <div>
+                    <button class="list_button">Accept</button>
+                </div>
+            </div>
+            <div class="list" onclick="showShoppingList(3)">
+                <p>Order: 29/5/2020 12:02 - Naam: Bert</p>
+                <p>Grootte van de bestelling: 9 producten</p>
+                <div>
+                    <button class="list_button">Accept</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="selected_list">
+            <div id="shopping_list_content">
+
+            </div>
+        </div>
+	</div>
+</body>
+</html>

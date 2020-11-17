@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+        <link rel="stylesheet" href= "../frontend/css/login.css">
+        <link rel="stylesheet" href= "../frontend/css/input_style.css">
+	</head>
+
+	<script>
+        function catchLogin(event) {
+
+        }
+ 	</script>
+
+    <body>
+        <div id="logo">
+            <img src="../resources/Logo_header?extension=png">
+        </div>
+
+        <div id="login_space">
+            <div>
+                <form action="/login/credentials" method="POST">
+                    <h2>Aanmelden</h2>
+                    <label for="uname">Gebruikersnaam : </label>
+                    <input type="text" id="uname" name="uname" autocomplete="username"><br><br>
+                    <label for="passwd">Wachtwoord : </label>
+                    <input type="password" id="passwd" name="passwd" autocomplete="current-password"><br><br>
+                    <input type="submit" value="Inloggen" class="submit">
+                </form>
+
+                <button>Wachtwoord vergeten?</button>
+                <br>
+                <button>Registreren</button>
+                
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href= "../frontend/css/input_style.css">
+		<link rel="stylesheet" href= "../frontend/css/product.css">
+
+		<script src="../frontend/javascript/caching_handler.js"></script>
+		<script src="../frontend/javascript/string_manipulator.js"></script>
+		<script src="../frontend/javascript/request_handler.js"></script>
+		<script src="../frontend/javascript/product_handler.js"></script>
+		<script src="../frontend/javascript/category_query.js"></script>
+		<script src="../frontend/javascript/shopping_list.js"></script>
+	</head>
+
+	<script>
+		function InitAll() {
+			getAllGroups();
+			initForm();
+			shoppingListHandler = new ShoppingListHandler();
+		}
+	</script>
+
+<body onload="InitAll()">
+	<div id="search">
+		<form id="query_form">
+			<h3>Zoek voor producten</h3>
+			<div id=search_box>
+			<input name="query_field" type="text" id="txtVal" placeholder="Aardappelkroketjes">
+			<input value="Zoeken" type="submit" id="search_button">
+		</form>
+	</div>
+		<div id=search_results> Zoekresultaat voor:</div>
+		<div id="result_display"></div>
+	</div>
+	</div>
+	<br>
+	
+	<div id="main-field">
+		<div id="shopping_content">
+			<div id="head-categories">
+				<h3>Categorieen</h3>
+				<div id="categories">
+				</div>
+			</div>
+			<!-- Products -->
+			<div id="products">
+				<table id="product_table">
+					
+				</table>
+
+				<div id="page_selector">
+					<div class="page_selector_component"><button class="page_button" id="page_down_button" onclick="changePage(-1)">Vorige</button></div>
+					<div class="page_selector_component"><p id="page_counter">1</p></div>
+					<div class="page_selector_component"><button class="page_button" id="page_up_button" onclick="changePage(1)">Volgende</button></div>
+				</div>
+			</div>
+		</div>
+		<div id="shopping-list">
+			<h4>Boodschappenlijstje</h4>
+			<ul id="list" style="list-style-type: none;">
+			</ul>
+			<button id=delete_list onclick="shoppingListHandler.clear()" minimal>Verwijder alles</button>
+			<p><label for="appt" style="font-size: large;">Hoelaat wilt u de boodschappen ontvangen?</label></p>
+			<input type="time" id="appt" name="appt"
+      		 min="08:00" max="20:00" required>
+			<!-- <div id=text_time><small>Geef vrijwilligers genoeg tijd om u te kunnen helpen.</small></div> -->
+			<!-- <div id=vraag_levering>
+			Wanneer wilt u de boodschappen geleverd krijgen?
+			</div> -->
+			<br>
+			<div id=checkout>
+				<button type="button" id="checkout-button" onclick="location.href='../html/shopping_lists';">
+					Volgende
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

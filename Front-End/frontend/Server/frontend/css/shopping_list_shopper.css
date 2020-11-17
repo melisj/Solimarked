@@ -1,0 +1,101 @@
+body {
+	/* background: #a2bcda; */
+    line-height: 20px;
+    color: rgb(228, 238, 136);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    background-image: url(https://i1.wp.com/www.eatthis.com/wp-content/uploads/2019/11/fresh-groceries-in-a-grocery-cart.jpg?fit=1200%2C879&ssl=1);
+    background-size: cover;
+    background-position: center;
+}
+
+#main_field{
+    margin: auto;
+    width: 95%;
+    text-align: center;
+    padding: 40px;
+    padding-top: 100px;
+}
+
+#shopping_lists {
+    width: 50%;
+    /* border: 1px solid rgb(39, 39, 39); */
+    padding: 20px;
+    display: inline-block;
+    min-height: 500px;
+    margin: 10px;
+    /* background: rgb(56, 105, 128); */
+}
+
+#shopping_list_content {
+    float: left;
+    text-align: left;
+    min-height: 420px;
+}
+
+.list {
+    border: 1px solid rgb(8, 29, 10);
+    text-align: left;
+    float: left;
+    width: 80%;
+    background-color: rgb(91, 145, 70);
+    color: rgb54, 204, 209);
+    padding-left: 10px;
+    opacity: 92%;
+}
+
+.list:hover {
+    background-color: #777777;
+}
+
+.list:active {
+    background-color: #ffffff;
+}
+
+#selected_list {
+    color: rgb(228, 238, 136);
+    width: 25%;
+    border: 1px solid rgb(8, 29, 10);
+    padding: 20px;
+    display: inline-block;
+    min-height: 500px;
+    margin: 10px;
+    background-color: rgb(91, 145, 70);
+    opacity: 92%;
+}
+
+button {
+    min-width: 30%;
+    opacity: 94%;
+    border-radius: 10px;
+    
+}
+
+.list_button {
+    min-width: 10%;
+    float: right;
+}
+
+button, #search_button {
+    font-size: 17px;
+    width: 20%;
+    height: 50px;
+    color: rgb(223, 220, 39);
+    background-color: rgb(43, 63, 46);
+    border: 0px;
+    margin: 5px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    border: 1px solid rgb(36, 36, 36);
+}
+
+button:hover, #search_button:hover {
+    background-color: #dddddd;
+    font-size: 20px;
+}
+
+button:active, #search_button:active {
+    background-color: #ffffff;
+    font-size: 22px;
+}

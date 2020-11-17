@@ -1,0 +1,54 @@
+button, #search_button, .submit {
+    font-size: 17px;
+    min-width: 80%;
+    height: 50px;
+    border: 3px solid rgb(110, 116, 78);
+    color: yellow;
+    background-color: #1a001a;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.button_delete_shopping_item {
+    min-width: 20px;
+    height: 28px;
+    border: 2px solid rgb(114, 119, 79);
+    float: left;
+    font-size: medium;
+}
+
+button:hover, #search_button:hover, .submit:hover {
+    color: white;
+    background-color: #100100;
+    font-size: 18px;
+}
+
+button:active, #search_button:active, .submit:active {
+    color: white;
+    background-color: black;
+    font-size: 19px;
+}
+
+.category_item {
+	
+    margin-bottom: 5px;
+    font-family: Arial;
+}
+
+.category_item:hover {
+    text-decoration: underline;
+}
+
+.category_item:active {
+    color: red;
+}
+
+.page_button {
+    width: 80%;
+    
+}
+
+input {
+    min-height: 40px;
+    font-size: 22px;
+}
